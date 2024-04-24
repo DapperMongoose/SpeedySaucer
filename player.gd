@@ -7,5 +7,5 @@ func _ready():
 
 
 func test():
-	print(2**5)
-	print("2 + 2 is" + str(4))
+	var my_variable = (2+3) * 5
+	print(my_variable)

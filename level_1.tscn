@@ -1,19 +1,61 @@
-[gd_scene load_steps=5 format=3 uid="uid://u7jtd37lnleb"]
+[gd_scene load_steps=7 format=3 uid="uid://u7jtd37lnleb"]
 
 [ext_resource type="Texture2D" uid="uid://dg3x6t106oi6e" path="res://purple.png" id="1_5omrp"]
 [ext_resource type="Script" path="res://level.gd" id="1_sia7a"]
 [ext_resource type="PackedScene" uid="uid://cxqg60s2uvld6" path="res://player.tscn" id="2_a4uty"]
 [ext_resource type="PackedScene" uid="uid://bumnsrr2i6by6" path="res://maze.tscn" id="4_tya6p"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_bbi3q"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_nejvh"]
+font_size = 24
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_sia7a")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Graphics" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Graphics"]
+layer = -10
+
+[node name="Background" type="TextureRect" parent="Graphics/CanvasLayer"]
 z_index = -100
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_5omrp")
 stretch_mode = 1
+
+[node name="StartLabel" type="Label" parent="Graphics"]
+z_index = -25
+offset_left = 522.0
+offset_top = 239.0
+offset_right = 617.0
+offset_bottom = 284.0
+text = "START"
+label_settings = SubResource("LabelSettings_bbi3q")
+
+[node name="EndLabel" type="Label" parent="Graphics"]
+z_index = -25
+offset_left = 758.0
+offset_top = 91.0
+offset_right = 835.0
+offset_bottom = 136.0
+text = "END"
+label_settings = SubResource("LabelSettings_bbi3q")
+
+[node name="Tutorial" type="Label" parent="Graphics"]
+z_index = -25
+offset_left = 25.0
+offset_top = 216.0
+offset_right = 376.0
+offset_bottom = 433.0
+text = "Navigate from the start to the end without leaving the dark purple area using the arrow keys or WASD"
+label_settings = SubResource("LabelSettings_nejvh")
+autowrap_mode = 3
 
 [node name="Player" parent="." instance=ExtResource("2_a4uty")]
 position = Vector2(565, 318)

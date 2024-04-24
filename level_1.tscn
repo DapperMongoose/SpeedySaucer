@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://u7jtd37lnleb"]
+[gd_scene load_steps=4 format=3 uid="uid://u7jtd37lnleb"]
 
 [ext_resource type="Texture2D" uid="uid://dg3x6t106oi6e" path="res://purple.png" id="1_5omrp"]
+[ext_resource type="Script" path="res://level_1.gd" id="1_sia7a"]
 [ext_resource type="PackedScene" uid="uid://cxqg60s2uvld6" path="res://player.tscn" id="2_a4uty"]
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_sia7a")
 
 [node name="Background" type="TextureRect" parent="."]
 z_index = -100
